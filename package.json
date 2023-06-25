@@ -1,0 +1,44 @@
+{
+  "name": "remote-editor",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "dist",
+    "index.d.ts",
+    "README.md"
+  ],
+  "bin": {
+    "remote-editor": "./dist/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "conc -c red,yellow 'pnpm watch:build' 'pnpm watch:server'",
+    "watch:server": "nodemon ./dist/index.js",
+    "watch:build": "esbuild src/index.ts  --bundle --loader:.node=file --platform=node --outdir=dist --watch",
+    "build": "esbuild src/index.ts  --bundle --loader:.node=file --platform=node --outdir=dist",
+    "start": "node ./dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/watchpack": "latest",
+    "@types/ws": "latest",
+    "@typescript-eslint/eslint-plugin": "5.51.0",
+    "@typescript-eslint/parser": "5.51.0",
+    "chalk": "latest",
+    "chokidar": "latest",
+    "commander": "latest",
+    "esbuild": "latest",
+    "eslint": "^8.24.0",
+    "eslint-plugin-json-format": "^2.0.1",
+    "nodemon": "latest",
+    "typescript": "^4.4.0",
+    "watchpack": "latest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.12.0"
+  }
+}
